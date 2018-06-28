@@ -1,18 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	  <meta charset="utf-8">
-
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 	 
 
 	<title>libraryInventory_finalProject2018</title>
 
 </head>
+<body>
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-2">
@@ -20,7 +15,7 @@
 			<div class="col-md-8">
 				<h1 >Onittamo University Book Database </h1>
 			</div>
-			</div>
+		</div>
 			<div class="row">
 			<div class="col-md-2">
 				<h4 id="date">Today's Date</h4>
@@ -28,53 +23,79 @@
 			<div class="col-md-6">
 				<h4><strong> Add, Search, Check Out And Return Books</strong> By Title, Author Or Index Id Number.</h4>
 			</div>
-			</div>
-			<div class="row">
+		</div>
+		<div class="row">
 				<div class="col">
 					<ul class="nav nav-tabs">
-						<li class= "active"><a data-toggle="tab"  href="#add">Add New/ Return Book</a></li>
-					    <li><a data-toggle="tab" href="#search" >Search Book</a></li>
-					    <li><a data-toggle="tab" href="#checkOut">Check Out Book</a></li>
+						<li class= "active"><a data-toggle="tab" href="#checkOut">Check Out Book</a></li>
+						<li><a data-toggle="tab"  href="#add">Add New/ Return Book</a></li>
+					    <!-- <li><a data-toggle="tab" href="#search" >Search Book</a></li> -->
 					</ul>
 					<br>
 				</div>
-				<div class="tab-content">
-	  				<div id= "add" class="tab-pane fade in active">
-						<input type="text" id="title" placeholder="Title">
-						<input type="text" id="author" placeholder="Author">
-						<input type="number" id="bookId" placeholder="Index Id">
-						<input type="number" id="total" placeholder="Total Of Books">
-						<input type="button" value="Add Book" onclick="saveData()">
-						<br>
-						<br>
-						<h5><strong>All Books: </strong></h5>
-						<ul id = "bookList"></ul>
+		
+			<div class="tab-content">
+				<div id= "checkOut" class=" tab-pane fade in active ">
+					<h5><strong>Note: All Fields Requred </strong></h5>
+					<form >
+					<label for="titleOut">Enter Book Title:</label>
+					<input type="text" id="titleOut" placeholder="Title" required/>
+					<label for="authorOut">Enter Book Author:</label>
+					<input type="text" id="authorOut" placeholder="Author" >
+					<label for="bookidOut">Book Identification Number:</label>
+					<input type="number" id="bookIdOut" placeholder="Index Id" step="1" min="0" max="1000" required>
+					<label for="borrower">Lendee's First and Last Names:</label>
+					<input type="text" id="borrower" placeholder="Lendee's Full Name" required>
+					<input type="submit" value="Check Out" onclick="checkOut()">
 
-					</div>
-					<div id= "search" class=" tab-pane fade ">
-						<input type="number" id="bookIdSearch" placeholder="Index Id">
-						<input type="text" id="titleSearch" placeholder="Title">
-						<input type="text" id="authorSearch" placeholder="Author">
-						<input type="button" value="Search" onclick="searchData()">
-						<ul id = "bkListSearch"></ul>
-					</div>
-					<div id= "checkOut" class=" tab-pane fade ">
-						<input type="text" id="titleOut" placeholder="Title">
-						<input type="text" id="authorOut" placeholder="Author">
-						<input type="number" id="bookIdOut" placeholder="Index Id">
-						<input type="number" id="quantity" placeholder="totalBooks">
-						<input type="text" id="borrower" placeholder="Borrower's Full Name">
-						<input type="button" value="Check Out" onclick="checkOut()">
-						<ul id = "bkListOut"></ul>
-					</div>
+					<input type="number" id="totalOut" placeholder="Total Books" step="1" min="0" max="1000" required>
+					<ul id = "bkListSearch"></ul>
+					<!-- <ul id = "bkListOut"></ul> -->
+					</form>
 				</div>
+				
+	  			<div id= "add" class="tab-pane fade " >
+	  				
+	  				<form >
+					<label for="Title">Enter Book Title:</label>
+					<input type="text" id="title" placeholder ="Title" required>
+					<label for="Author">Enter Book Author:</label>
+					<input type="text" id="author" placeholder="Author" required>
+					<label for="Bookid">Book Identification Number:</label>
+					<input type="number" id="bookId" placeholder="Index Id" min="0" max="1000" required >
+					<input type="submit" value="Add Book" onclick="saveData()">
+					</form>
+					<label for="Totalbooks">Book Quantity to Be Added:</label>
+					<input type="number" id="total" placeholder="Total Of Books" min="0" max="1000" required>
+					<h5><strong>All Books: </strong></h5>
+					<ul id = "bookList"></ul>
+
+				</div>
+					
+				 <!--<div id= "search" class=" tab-pane fade ">
+				 	<form >
+					<input type="text" id="titleSearch" placeholder="Title" required/>
+					<input type="text" id="authorSearch" placeholder="Author" >
+					<input type="number" id="bookIdSearch" placeholder="Index Id" step="1" min="0" max="1000">
+					<input type="submit" value="SearchBook" onclick="searchData()">
+
+					<input type="number" id="totalSearch" placeholder="Total Books" step="1" min="0" max="1000" required> -->
+					
+				<!-- </form> -->
+				<!-- </div> -->
+				
 			</div>
 		</div>
 	</div>
 
-
-
-<script src="JScript.js"></script>		
+	<script src="JScriptcopy2.js"></script>	
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	  <link rel="stylesheet" href="stylescopy2.css">	
 </body>
 </html>
 	 

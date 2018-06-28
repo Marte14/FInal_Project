@@ -1,0 +1,15 @@
+#bookId, #total, #bookIdOut, #totalOut {
+  width: 6em;
+  margin:15px;
+}
+#title, #author, #titleOut, #authorOut, #borrower {
+  width: 20em;
+  margin:10px;
+}
+input:required {
+  border: 1px solid black;
+}
+/*input:required {
+  border: 1px solid black;
+}
+*/
